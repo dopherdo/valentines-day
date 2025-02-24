@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Valentine's Day Project
+
+A small project to give to my significant other for Valentine's day
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
