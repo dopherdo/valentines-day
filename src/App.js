@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 
 import './App.css';
 
@@ -8,8 +7,7 @@ import './App.css';
 function App() {
 
   const [x, setx] = useState(52);
-  const [y, sety] = useState(55);
-  const form = useRef();
+  const [y, sety] = useState(60);
 
 
   const body = document.querySelector("body");
@@ -40,12 +38,12 @@ function App() {
   }
 
   const clickedYes = () => {
-    alert("Its either you couldn't catch the no button or you really wanted to be my valentines date. Either way an email has been sent to me notifying me what you choose")
+    alert("YAYYY I'm glad you didn't say no :)")
   }
 
   function mouseOver() {
-    setx(Math.random() * 100);
-    sety(Math.random() * 100);
+    setx(Math.random() * 95);
+    sety(Math.random() * 95);
   }
   
   var noStyle = {
@@ -56,32 +54,17 @@ function App() {
   
   var yesStyle = {
     left: "40%",
-    top: "55%",
+    top: "60%",
     position: "absolute",
   }
 
-  /* code for email alert sent when she says yes */
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm('service_z199l6g', 'template_w4y121f', form.current, 'KI7bceeNiZsp0c9Kp')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset();
-  };
-
-
-
+  
   return (
     <>
     <p className="pre-valentine">
       Will you be my
     </p>
-    <p className="valentine">Valentine</p>
-    <form onSubmit={sendEmail} ref={form}>
+    <p className="valentine">Valentine?</p>
       <button 
         style={yesStyle}
         type="submit"
@@ -89,13 +72,12 @@ function App() {
       >
         YES!
       </button> 
-    </form>
     <button
       onMouseOver={mouseOver}
       style={noStyle}
       onClick={popUp}
     >
-      no
+      no u suck
   </button>
   </>
   );
